@@ -1,0 +1,29 @@
+.contents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-content: center; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box-shdaow {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.f-500 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.height-width-card {
+    width: 230px;
+    height: 90px;
+}
+
+.second-height {
+    width: 230px;
+    height: 90px;
+
+}

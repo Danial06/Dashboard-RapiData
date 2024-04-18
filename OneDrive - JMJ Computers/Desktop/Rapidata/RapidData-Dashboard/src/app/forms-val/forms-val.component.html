@@ -1,0 +1,219 @@
+<div class="container-fluid p-4">
+    <div class="row p-0 m-2">
+        <span class="d-flex">
+            <img src="../assets/icons8-back-48.png" alt="" height="24" width="24">
+            <h5>Add legal Entity</h5>
+        </span>
+
+    </div>
+    <form [formGroup]="employeForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12 " style="    display: flex;
+    flex-direction: row;">
+
+                <mat-form-field class="example-full-width m-1" [floatLabel]="'always'">
+                    <mat-label>Entity Name</mat-label>
+                    <input matInput placeholder="Enter Entity Name" value="" formControlName="entityName">
+                    <mat-error *ngIf="entityName?.invalid && formInvalid ||(entityName?.dirty || entityName?.touched)">
+                        <span *ngIf="entityName?.hasError('required')">Entity Name is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <mat-form-field class="example-full-width m-1" [floatLabel]="'always'">
+                    <mat-label>Legal Registration Name</mat-label>
+                    <input matInput placeholder="Enter Legal Registration Name" value=""
+                        formControlName="legalRegistration">
+                    <mat-error
+                        *ngIf="legalRegistration?.invalid && formInvalid ||(legalRegistration?.dirty || legalRegistration?.touched)">
+                        <span *ngIf="legalRegistration?.hasError('required')">Legal Registration Name is
+                            required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field class="example-full-width m-1" [floatLabel]="'always'">
+                    <mat-label>Legal Registration Number</mat-label>
+                    <input matInput placeholder="Enter Legal Registration Number" value=""
+                        formControlName="legalRegistrationNumber">
+                    <mat-error
+                        *ngIf="legalRegistrationNumber?.invalid && formInvalid ||(legalRegistrationNumber?.dirty || legalRegistrationNumber?.touched)">
+                        <span *ngIf="legalRegistrationNumber?.hasError('required')">Legal Registration Number is
+                            required.</span>
+                        <span *ngIf="legalRegistrationNumber?.hasError('minlength')">Legal Registration Number should be
+                            atleast 6 Numbers.</span>
+                        <span *ngIf="legalRegistrationNumber?.hasError('pattern')">Please Enter only number.</span>
+                    </mat-error>
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 " style="    display: flex;
+            flex-direction: row;">
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width m-1">
+                    <mat-select placeholder="Entity Head" formControlName="entityHead">
+                        <mat-option value="Shivam Dube">Shivam Dube</mat-option>
+                        <mat-option value="Riyan Parag">Riyan Parag</mat-option>
+                    </mat-select>
+                    <mat-label>Entity Head</mat-label>
+                    <mat-error *ngIf="entityHead?.invalid && formInvalid ||(entityHead?.dirty || entityHead?.touched)">
+                        <span *ngIf="entityHead?.hasError('required')">Entity Head is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width m-1">
+                    <mat-select placeholder="Select Currency Format" formControlName="currency">
+                        <mat-option value="INR">INR</mat-option>
+                        <mat-option value="JPY">JPY</mat-option>
+                        <mat-option value="AUD">AUD</mat-option>
+                    </mat-select>
+                    <mat-label>Currency Format</mat-label>
+                    <mat-error *ngIf="currency?.invalid && formInvalid ||(currency?.dirty || currency?.touched)">
+                        <span *ngIf="currency?.hasError('required')">Currency Format is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width m-1">
+                    <mat-select placeholder="Select Country" formControlName="country">
+                        <mat-option value="India">India</mat-option>
+                        <mat-option value="Japan">Japan</mat-option>
+                        <mat-option value="Dubai">Dubai</mat-option>
+                    </mat-select>
+                    <mat-label>Country</mat-label>
+                    <mat-error *ngIf="country?.invalid && formInvalid ||(country?.dirty || country?.touched)">
+                        <span *ngIf="country?.hasError('required')">Country is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 " style="    display: flex;
+                    flex-direction: row;">
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width m-1">
+                    <mat-select placeholder="State" formControlName="state">
+                        <mat-option value="TamilNadu">TamilNadu</mat-option>
+                        <mat-option value="Karnataka">Karnataka</mat-option>
+                        <mat-option value="Kerala">Kerala</mat-option>
+                    </mat-select>
+                    <mat-label>State</mat-label>
+                    <mat-error *ngIf="state?.invalid && formInvalid ||(state?.dirty || state?.touched)">
+                        <span *ngIf="state?.hasError('required')">State is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width  m-1">
+                    <mat-select placeholder="Select Month" formControlName="month">
+                        <mat-option value="Jan">Jan</mat-option>
+                        <mat-option value="Feb">Feb</mat-option>
+                        <mat-option value="Mar">Mar</mat-option>
+                    </mat-select>
+                    <mat-label>Select Month</mat-label>
+                    <mat-error *ngIf="month?.invalid && formInvalid ||(month?.dirty || month?.touched)">
+                        <span *ngIf="month?.hasError('required')">Month is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width  m-1">
+                    <mat-select placeholder="Start Year" formControlName="startYear">
+                        <mat-option value="2024">2024</mat-option>
+                        <mat-option value="2023">2023</mat-option>
+                        <mat-option value="2022">2022</mat-option>
+                    </mat-select>
+                    <mat-label>Start Year</mat-label>
+                    <mat-error *ngIf="startYear?.invalid && formInvalid ||(startYear?.dirty || startYear?.touched)">
+                        <span *ngIf="startYear?.hasError('required')">Year is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 " style="    display: flex;
+                            flex-direction: row;">
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width  m-1">
+                    <mat-select placeholder="Last Day" formControlName="lastDay">
+                        <mat-option value="01">01</mat-option>
+                        <mat-option value="02">02</mat-option>
+                        <mat-option value="03">03</mat-option>
+                    </mat-select>
+                    <mat-label>Select Last Day</mat-label>
+                    <mat-error *ngIf="lastDay?.invalid && formInvalid ||(lastDay?.dirty || lastDay?.touched)">
+                        <span *ngIf="lastDay?.hasError('required')">Last Day is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field [floatLabel]="'always'" class="example-full-width  m-1">
+                    <mat-select placeholder="Select Financial Year Starting Month" formControlName="startingMonth">
+                        <mat-option value="Mar">Mar</mat-option>
+                        <mat-option value="April">April</mat-option>
+                        <mat-option value="May">May</mat-option>
+                        <mat-option value="June">June</mat-option>
+                    </mat-select>
+                    <mat-label>Select Financial Year Starting Month</mat-label>
+                    <mat-error
+                        *ngIf="startingMonth?.invalid && formInvalid ||(startingMonth?.dirty || startingMonth?.touched)">
+                        <span *ngIf="startingMonth?.hasError('required')">Financial Month is required.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 " style="    display: flex;
+                                    flex-direction: row;">
+
+                <mat-form-field class="example-full-width  m-1" [floatLabel]="'always'">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput placeholder="Enter Address" formControlName="address"></textarea>
+                    <mat-error *ngIf="address?.invalid && formInvalid ||(address?.dirty || address?.touched)">
+                        <span *ngIf="address?.hasError('required')">Address is required.</span>
+                        <span *ngIf="address?.hasError('minlength')">Min length of Address should be minimum 10
+                            characters.</span>
+                    </mat-error>
+                </mat-form-field>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-checkbox class="example-margin" formControlName="default" [checked]='true'>Set as
+                    default</mat-checkbox>
+            </div>
+            <div class="col-md-4">
+                <mat-checkbox class="example-margin" formControlName="weekOffs">Are Week-Offs Payable?
+                </mat-checkbox><span><img src="../assets/icons8-info-30.png" alt=""></span>
+            </div>
+            <div class="col-md-4">
+                <mat-checkbox class="example-margin" formControlName="holidays">Are Holidays Payable?
+                </mat-checkbox><span><img src="../assets/icons8-info-30.png" alt=""></span>
+            </div>
+        </div>
+
+
+        <div id="btn" class="m-4 " style="float: right;">
+            <button mat-flat-button color="primary" type="submit">Submit</button>
+        </div>
+    </form>
+
+
+
+</div>

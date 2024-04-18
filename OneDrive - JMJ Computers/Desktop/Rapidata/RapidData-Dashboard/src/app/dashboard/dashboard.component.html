@@ -1,0 +1,192 @@
+<div class="container-fluid p-4">
+    <div class="col-md-12 ">
+        <h5>Today's Attendance</h5>
+    </div>
+    <div class="col-md-12 contents mb-4">
+        <mat-card class="box-shdaow p-3 height-width-card" style="flex-direction: row;">
+            <div>
+                <img src="../assets/Profile.png" alt="" height="60" width="60">
+
+            </div>
+            <div>
+                <p class="f-500">{{totalEmployees}}</p>
+                <p>Total Employees</p>
+            </div>
+        </mat-card>
+        <mat-card class="box-shdaow p-3 height-width-card">
+            <div class="line">
+
+            </div>
+            <p>Present
+                <span style="float: right;color: blue;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                        width="15"></span>
+            </p>
+            <p class="f-500">{{present}}</p>
+        </mat-card>
+        <mat-card class="box-shdaow p-3 height-width-card">
+            <p>Absent
+                <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                        width="15"></span>
+            </p>
+            <p class="f-500">{{absent}}</p>
+        </mat-card>
+        <mat-card class="box-shdaow p-3 height-width-card">
+            <p>WFH
+                <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                        width="15"></span>
+            </p>
+            <p class="f-500"> {{wfh}}</p>
+        </mat-card>
+        <mat-card class="box-shdaow p-3 height-width-card">
+            <p>Leave
+                <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                        width="15"></span>
+            </p>
+            <p class="f-500">{{leave}}</p>
+        </mat-card>
+    </div>
+    <div class="row m-1">
+        <div class="col-md-6 box-shdaow p-2">
+
+            <h5>Leave Statistics</h5>
+
+
+
+            <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions3"></highcharts-chart>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12 m-2">
+                <mat-card class="box-shdaow p-2">
+
+
+                    <p>
+                        <span><img src="../assets/icons8-exit-96.png" alt="" height="34" width="34"></span>Not Yet In
+                        <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                                width="15"></span>
+                    </p>
+                    <p class="f-500">{{notYetIn}}</p>
+                </mat-card>
+            </div>
+            <div class="col-md-12" style="    display: flex;
+    flex-direction: row;
+    justify-content: center;">
+                <div class="col-md-6">
+                    <mat-card class="box-shdaow p-2 m-1">
+                        <p>Early Check In
+                            <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                                    width="15"></span>
+                        </p>
+                        <p class="f-500">{{earlyCheckIn}}</p>
+                    </mat-card>
+                    <mat-card class="box-shdaow p-2 m-1">
+                        <p>Early Check Out
+                            <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                                    width="15"></span>
+                        </p>
+                        <p class="f-500">{{earlyCheckOut}}</p>
+                    </mat-card>
+                </div>
+                <div class="col-md-6">
+                    <mat-card class="box-shdaow p-2  m-1">
+                        <p>Late Check In
+                            <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                                    width="15"></span>
+                        </p>
+                        <p class="f-500">{{lateCheckIn}}</p>
+                    </mat-card>
+                    <mat-card class="box-shdaow p-2  m-1">
+                        <p>Late Check Out
+                            <span style="float: right;"><img src="../assets/icons8-forward-26.png" alt="" height="15"
+                                    width="15"></span>
+                        </p>
+                        <p class="f-500">{{lateCheckOut}}</p>
+                    </mat-card>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row m-1 p-0">
+        <div class="col-md-7 p-2  ">
+            <div class="box-shdaow p-2">
+                <div class="l-header ">
+                    <div class="row ">
+                        <div class="col-md-8">
+
+                            <h5>Attendance Overview</h5>
+
+                        </div>
+                        <div class="col-md-4">
+                            <p>Date Range</p>
+                            <mat-form-field>
+                                <mat-label>Enter a date range</mat-label>
+                                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                                    <input matStartDate formControlName="start" placeholder="Start date">
+                                    <input matEndDate formControlName="end" placeholder="End date">
+                                </mat-date-range-input>
+
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+
+                                <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start
+                                    date</mat-error>
+                                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end
+                                    date</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions2"></highcharts-chart>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-5 p-2  ">
+            <div class="box-shdaow p-2">
+                <div class="l-header ">
+                    <div class="row ">
+                        <div class="col-md-8">
+                            <h5>Request</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Date Range</p>
+                            <mat-form-field style="width: 224px;">
+                                <mat-label>Enter a date range</mat-label>
+                                <mat-date-range-input [formGroup]="range2" [rangePicker]="picker2">
+                                    <input matStartDate formControlName="start2" placeholder="Start date">
+                                    <input matEndDate formControlName="end2" placeholder="End date">
+                                </mat-date-range-input>
+
+                                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker2></mat-date-range-picker>
+
+                                <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start
+                                    date</mat-error>
+                                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end
+                                    date</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div style="    float: right;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;" class="m-2">
+            <button mat-flat-button color="primary" routerLink="/forms">Go To Forms Page</button>
+        </div>
+    </div>
+
+</div>
